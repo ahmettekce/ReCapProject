@@ -9,22 +9,30 @@ namespace Business.Concrete
 {
     public class ProductManager:IProductService
     {
-        private IProductDal _productDal;
+        private ICarDal _carDal;
 
-        public ProductManager(IProductDal productDal)
+        public ProductManager(ICarDal carDal)
         {
-            _productDal = productDal;
+            _carDal = carDal;
         }
         public List<Car> GetAll()
         {
-            return _productDal.GetAll();
+            return _carDal.GetAll();
         }
 
         public List<Car> GetAllByCategoryId(int id)
         {
-            return _productDal.GetById(id);
+            return _carDal.GetAll();
         }
 
-        
+        public List<Car> GetCarsByBrandId(int id)
+        {
+            return _carDal.GetAll(p => p.BrandId == id);
+        }
+
+        public List<Car> GetCarsByColorId(int id)
+        {
+            return _carDal.GetAll(p => p.ColorId == id);
+        }
     }
 }
