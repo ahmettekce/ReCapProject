@@ -4,8 +4,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using DataAccess.Abstract;
-using Entities.Abstract;
 using Entities.Concrete;
+using Entities.IDTOs;
 
 namespace DataAccess.Concrete
 {
@@ -64,6 +64,11 @@ namespace DataAccess.Concrete
         public List<Car> GetById(int id)
         {
             return _cars.Where(p => p.Id == id).ToList();
+        }
+
+        public List<CarDetailsDto> GetCarDetails()
+        {
+            throw new NotImplementedException();
         }
     }
 }

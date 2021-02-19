@@ -10,11 +10,11 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            ProductManager productManager = new ProductManager(new EfCar());
+            CarManager carManager = new CarManager(new EfCar());
 
-            foreach (var car in productManager.GetAll())
+            foreach (var car in carManager.GetCarDetails())
             {
-                System.Console.WriteLine(car.Description);
+                System.Console.WriteLine($"Id: {car.Id}\naraç marka: {car.BrandName}\naraç rengi: {car.ColorName}\naracın ücreti: {car.DailyPrice}");
             }
 
 
