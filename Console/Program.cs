@@ -11,10 +11,15 @@ namespace Console
         static void Main(string[] args)
         {
             CarManager carManager = new CarManager(new EfCar());
+            var result = carManager.GetCarDetails();
 
-            foreach (var car in carManager.GetCarDetails())
+            if (result.Success)
             {
-                System.Console.WriteLine($"Id: {car.Id}\naraç marka: {car.BrandName}\naraç rengi: {car.ColorName}\naracın ücreti: {car.DailyPrice}");
+                foreach (var car in result.Data)
+                {
+                    System.Console.WriteLine(car.BrandName);
+                }
+
             }
 
 

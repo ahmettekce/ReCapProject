@@ -11,6 +11,7 @@ namespace Business.Constants
         public static string CarUpdated = "Araba güncelleme işlemi başarıyla gerçekleşti.";
         public static string CarDailyPriceInvalid = "Hata! Günlük fiyat 0'dan büyük olmalıdır.";
         public static string CarDescriptionInvalid = "Hata! Açıklama en az iki karakter olmalıdır.";
+        public static string CarListed = "Araçlar listelendi";
 
         public static string ColorAdded = "Renk ekleme işlemi başarıyla gerçekleşti.";
         public static string ColorDeleted = "Renk silme işlemi başarıyla gerçekleşti.";
