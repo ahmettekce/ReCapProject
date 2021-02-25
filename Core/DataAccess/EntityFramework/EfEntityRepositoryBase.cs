@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Core.DataAccess.EntityFramework
 {
-    public class EfEntityRepositoryBase<TEntity, TContex>:IEntityRepository<TEntity>
+    public class EfEntityRepositoryBase<TEntity, TContex> : IEntityRepository<TEntity>
     where TEntity : class, IEntity, new()
     where TContex : DbContext, new()
     {
@@ -16,12 +16,12 @@ namespace Core.DataAccess.EntityFramework
         {
             //if (entity.DailyPrice > 0)
             //{
-                using (TContex context = new TContex())
-                {
-                    var addedEntity = context.Entry(entity);
-                    addedEntity.State = EntityState.Added;
-                    context.SaveChanges();
-                }
+            using (TContex context = new TContex())
+            {
+                var addedEntity = context.Entry(entity);
+                addedEntity.State = EntityState.Added;
+                context.SaveChanges();
+            }
             //}
             //else
             //{
@@ -34,12 +34,12 @@ namespace Core.DataAccess.EntityFramework
         {
             //if (entity.DailyPrice > 0)
             //{
-                using (TContex context = new TContex())
-                {
-                    var updatedEntity = context.Entry(entity);
-                    updatedEntity.State = EntityState.Modified;
-                    context.SaveChanges();
-                }
+            using (TContex context = new TContex())
+            {
+                var updatedEntity = context.Entry(entity);
+                updatedEntity.State = EntityState.Modified;
+                context.SaveChanges();
+            }
             //}
             //else
             //{
