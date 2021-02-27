@@ -14,8 +14,13 @@ namespace Console
 
             //UserAdd();
 
+            //Rental();
+        }
+
+        private static void Rental()
+        {
             RentalManager rentalManager = new RentalManager(new EfRental());
-            Rental rental = new Rental { CarId = 1, CustomerId = 1, RentDate = new DateTime(2021,02,24)};
+            Rental rental = new Rental { CarId = 1, CustomerId = 1, RentDate = new DateTime(2021, 02, 24) };
             rentalManager.RentCar(rental);
             rentalManager.ReturnCar(rental, new DateTime(2021, 02, 25));
         }
