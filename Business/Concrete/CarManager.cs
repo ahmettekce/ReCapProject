@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluenValidation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.IDTOs;
+using FluentValidation;
 
 namespace Business.Concrete
 {
@@ -40,13 +43,10 @@ namespace Business.Concrete
 
         public IResult Add(Car car)
         {
-            if (car.Description.Length > 2)
-            {
-                _carDal.Add(car);
-                return new SuccessResult(Message.CarAdded);
-            }
-            return new ErrorResult(Message.CarDescriptionInvalid);
-
+            
+            ValidationTool.Validate(new CarValidator(), car);
+            _carDal.Add(car);
+            return new SuccessResult(Message.CarAdded);
 
         }
 
@@ -69,7 +69,7 @@ namespace Business.Concrete
 
         public IDataResult<List<CarDetailsDto>> GetCarDetails()
         {
-            return new SuccessDataResult<List<CarDetailsDto>>(_carDal.GetCarDetails(),Message.CarListed);
+            return new SuccessDataResult<List<CarDetailsDto>>(_carDal.GetCarDetails(), Message.CarListed);
         }
     }
 }
