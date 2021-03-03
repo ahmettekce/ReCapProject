@@ -19,7 +19,7 @@ namespace Console
 
         private static void Rental()
         {
-            RentalManager rentalManager = new RentalManager(new EfRental());
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
             Rental rental = new Rental { CarId = 1, CustomerId = 1, RentDate = new DateTime(2021, 02, 24) };
             rentalManager.RentCar(rental);
             rentalManager.ReturnCar(rental, new DateTime(2021, 02, 25));
@@ -27,7 +27,7 @@ namespace Console
 
         private static void UserAdd()
         {
-            UserManager user = new UserManager(new EfUser());
+            UserManager user = new UserManager(new EfUserDal());
             //user.Add(new User { FirstName = "Engin", LastName = "Demiroğ", Email = "engindemirog@gmail.com", Password = "12345" });
 
             var result = user.GetAll();
@@ -43,7 +43,7 @@ namespace Console
 
         private static void CarAdd()
         {
-            CarManager carManager = new CarManager(new EfCar());
+            CarManager carManager = new CarManager(new EfCarDal());
             var result = carManager.GetCarDetails();
 
             if (result.Success)

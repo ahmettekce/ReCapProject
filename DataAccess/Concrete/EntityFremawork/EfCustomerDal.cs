@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFremawork
 {
-    public class EfCustomer:ICustomerDal
+    public class EfCustomerDal:ICustomerDal
     {
     }
 }

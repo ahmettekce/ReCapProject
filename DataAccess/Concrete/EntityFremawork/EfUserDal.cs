@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace DataAccess.Concrete.EntityFremawork
 {
-    public class EfUser : EfEntityRepositoryBase<User, ReCapContext>, IUserDal
+    public class EfUserDal : EfEntityRepositoryBase<User, ReCapContext>, IUserDal
     {
         public List<UserDetailsDto> GetUserDetails()
         {

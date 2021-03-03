@@ -11,7 +11,7 @@ using Entities.IDTOs;
 
 namespace DataAccess.Concrete.EntityFremawork
 {
-    public class EfCar : EfEntityRepositoryBase<Car, ReCapContext>, ICarDal
+    public class EfCarDal : EfEntityRepositoryBase<Car, ReCapContext>, ICarDal
     {
         public List<CarDetailsDto> GetCarDetails()
         {
